@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import Header from './components/Header'
+import News from './components/News'
 
 class App extends Component {
   render() {
     return (
       <>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
+        <Header />
+        <News />
       </>
     )
   }
