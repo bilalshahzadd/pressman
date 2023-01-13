@@ -19,9 +19,9 @@ class NewsItem extends Component<linkProps> {
             <div className="card" style={{ "width": "23rem" }}>
                 <img src={this.props.imageUrl} className="card-img-top" alt="..." />
                 <div className="card-body">
-                    <h5 className="card-title">{this.props.title}</h5>
-                    <p className="card-text">{this.props.description}</p>
-                    <a href={this.props.url} className="btn btn-sm" style={this.customStyle}>Read More</a>
+                    <h5 className="card-title">{this.props.title}...</h5>
+                    <p className="card-text">{this.props.description}...</p>
+                    <a href={this.props.url} className="btn btn-sm" style={this.customStyle} target="_blank" rel="noreferrer">Read More</a>
                 </div>
             </div>
         )

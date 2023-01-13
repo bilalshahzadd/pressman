@@ -3,6 +3,8 @@ import NewsItem from './NewsItem'
 
 class News extends React.Component<{ heading: string }, any>{
 
+    //! FETCH DATA FROM API
+
     articles = [
         {
             "source": {
@@ -97,14 +99,14 @@ class News extends React.Component<{ heading: string }, any>{
             <>
                 <div className="container my-4">
                     <hr />
-                    <h1 className="fw-normal">{this.props.heading}</h1>
+                    <h2 className="fw-normal">{this.props.heading}</h2>
                     <hr />
                 </div>
                 <div className="container my-4">
                     <div className="row">
                         {this.state.articles?.map((element: any) => {
-                            return <div className="col-md-4 my-2">
-                                <NewsItem imageUrl={element.urlToImage} title={element.title} description={element.description} url={element.url} />
+                            return <div className="col-md-4 my-2" key={element.url}>
+                                <NewsItem imageUrl={element.urlToImage} title={element.title?.slice(0, 35)} description={element.description?.slice(0, 80)} url={element.url} />
                             </div>
                         })}
                     </div>
