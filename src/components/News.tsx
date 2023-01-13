@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 
-class News extends Component {
+type myProps = {
+    heading: string
+}
+
+class News extends Component<myProps> {
 
     articles = [
         {
@@ -266,22 +270,32 @@ class News extends Component {
         }
     ]
 
+    constructor(props: myProps) {
+        super(props);
+        this.state = {
+            articles: this.articles,
+            loading: false
+        };
+    }
+
     render() {
         return (
             <>
                 <div className="container my-4">
+                    <hr />
+                    <h1 className="fw-normal">{this.props.heading}</h1>
+                    <hr />
+                </div>
+                <div className="container my-4">
                     <div className="row">
-                        <div className="col-md-6 my-2">
-                            <NewsItem imageUrl="" title="title" description="description" />
+                        <div className="col-md-4 my-2">
+                            <NewsItem imageUrl="" title="title" description="description" url="url" />
                         </div>
-                        <div className="col-md-6 my-2">
-                            <NewsItem imageUrl="" title="title" description="description" />
+                        <div className="col-md-4 my-2">
+                            <NewsItem imageUrl="" title="title" description="description" url="url" />
                         </div>
-                        <div className="col-md-6 my-2">
-                            <NewsItem imageUrl="" title="title" description="description" />
-                        </div>
-                        <div className="col-md-6 my-2">
-                            <NewsItem imageUrl="" title="title" description="description" />
+                        <div className="col-md-4 my-2">
+                            <NewsItem imageUrl="" title="title" description="description" url="url" />
                         </div>
                     </div>
                 </div>

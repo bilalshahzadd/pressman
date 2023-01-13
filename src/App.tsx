@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <News />
+      <News heading="Pressman - Get Daily Updates For Free" />
     </>
   );
 }
