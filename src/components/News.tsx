@@ -1,143 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import NewsItem from './NewsItem'
 
-type myProps = {
-    heading: string
-}
-
-class News extends Component<myProps> {
+class News extends React.Component<{ heading: string }, any>{
 
     articles = [
-        {
-            "source": {
-                "id": null,
-                "name": "CNBC"
-            },
-            "author": "Holly Ellyatt",
-            "title": "Ukraine war live updates: Zelenskyy says troops will get more ammo as Kyiv insists battle for Soledar is not over - CNBC",
-            "description": "Ukraine's President Volodymyr Zelenskyy again rejected Russia's claims to have to have encircled and captured the salt-mining town of Soledar in Donetsk.",
-            "url": "https://www.cnbc.com/2023/01/12/ukraine-war-live-updates-latest-news-on-russia-and-the-war-in-ukraine.html",
-            "urlToImage": "https://image.cnbcfm.com/api/v1/image/107177720-1673524004863-gettyimages-1246175142-AFP_336W9JG.jpeg?v=1673531796&w=1920&h=1080",
-            "publishedAt": "2023-01-12T22:14:00Z",
-            "content": "The Kremlin's press spokesman said Britain has not requested any help from Moscow following the disappearance of two Britons near the zone of intense fighting in Donetsk in eastern Ukraine.\r\nThe men,… [+1804 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Space.com"
-            },
-            "author": "Robert Lea",
-            "title": "See a rare green comet closest to the sun on Jan. 12 in livestream - Space.com",
-            "description": "The comet C/2022 E3 (ZTF) will be at its closest to the sun since the last ice age before it swings past Earth in February.",
-            "url": "https://www.space.com/comet-c2022-e3-ztf-closest-to-sun-thursday-jan-12-2023",
-            "urlToImage": "https://cdn.mos.cms.futurecdn.net/sDcm46qbzdeaMS3UoPN5DL-1200-80.jpg",
-            "publishedAt": "2023-01-12T21:43:26Z",
-            "content": "A comet that hasn't visited Earth or the inner solar system since the last ice age will reach its closest point to the sun tonight (Jan. 12) and you can watch it live online in a free webcast.\r\nThe c… [+3716 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "New York Post"
-            },
-            "author": "Steven Vago, Olivia Land",
-            "title": "Ana Walshe's tenants saw her have a 'meltdown like Britney Spears' - New York Post ",
-            "description": "“It was like a whole other Ana,” Mandi Silva told The Post of the moment she and her husband confronted the Walshes late last month.",
-            "url": "https://nypost.com/2023/01/12/ana-walshe-had-a-meltdown-like-britney-spears-tenants/",
-            "urlToImage": "https://nypost.com/wp-content/uploads/sites/2/2023/01/brian-ana-walshe-tenants-friends-comp-1.jpg?quality=75&strip=all&w=1024",
-            "publishedAt": "2023-01-12T21:22:00Z",
-            "content": "Former tenants of missing Massachusetts mom Ana Walshe and her fraudster husband claim they saw the composed career woman descend into an epic meltdown shortly before her disappearance.\r\nIt was like … [+3818 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Fox Business"
-            },
-            "author": "Stephanie Giang-Paunon",
-            "title": "Prince Harry's ‘Spare’ sets record for first-day sales with 1.4 million copies sold amid royal fallout - Fox Business",
-            "description": "Prince Harry has set a first-day sales record with his bombshell book \"Spare,\" where he publicly spoke out against the royal family, with 1.4 million copies sold.",
-            "url": "https://www.foxbusiness.com/entertainment/prince-harrys-spare-sets-record-first-day-sales-1-4-million-copies-sold-royal-fallout",
-            "urlToImage": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2023/01/0/0/prince-harry.jpg?ve=1&tl=1",
-            "publishedAt": "2023-01-12T21:08:08Z",
-            "content": "Prince Harry’s tell-all memoir \"Spare\" has been flying off the shelves since its highly anticipated release.\r\nFirst-day sales for the controversial book topped 1.4 million copies, according to publis… [+3369 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Entertainment Tonight"
-            },
-            "author": "Miguel A. Melendez",
-            "title": "Lisa Marie Presley Rushed to the Hospital Following Cardiac Arrest - Entertainment Tonight",
-            "description": "The news comes just days after she attended the Golden Globes.",
-            "url": "https://www.etonline.com/lisa-marie-presley-rushed-to-the-hospital-following-cardiac-arrest-197275",
-            "urlToImage": "https://www.etonline.com/sites/default/files/styles/max_1280x720/public/images/2023-01/MK-Lisa-Marie-Presley-1280-X-720-HERO-1-IMAGE.jpg?h=22eedec3&itok=XeBntnab",
-            "publishedAt": "2023-01-12T20:51:57Z",
-            "content": "Lisa Marie Presley was rushed to the hospital Thursday morning after going into full cardiac arrest, ET has confirmed.\r\nA spokesperson for the Los Angeles County Sheriff's Department tells ET that de… [+2237 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Fox Business"
-            },
-            "author": "Joe Toppe",
-            "title": "Disney faces proxy fight from activist investor Nelson Peltz - Fox Business",
-            "description": "A proxy fight is brewing between Trian Fund Management and the Walt Disney Company as Trian looks to secure a board seat for its CEO Nelson Peltz",
-            "url": "https://www.foxbusiness.com/markets/nelson-peltz-plans-disney-proxy-fight",
-            "urlToImage": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2021/12/0/0/Disney-logo.jpg?ve=1&tl=1",
-            "publishedAt": "2023-01-12T20:23:25Z",
-            "content": "Activist investor Nelson Peltz wants a seat on Walt Disney's board, saying he wants to \"restore the magic\" in the entertainment and media company.\r\nPeltz's Trian Group filed a preliminary proxy state… [+3894 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "The Guardian"
-            },
-            "author": "Guardian sport",
-            "title": "Teams eye Derek Carr as quarterback bids farewell to Raiders - The Guardian",
-            "description": "Quarterback Derek Carr appeared to confirm his nine-year career with the Raiders is over after posting a farewell to the team’s fans on Instagram",
-            "url": "https://www.theguardian.com/sport/2023/jan/12/derek-carr-las-vegas-raiders-quarterback-leaving-nfl-football",
-            "urlToImage": "https://i.guim.co.uk/img/media/73b6944c023559459343a50a224e1f27457ae459/0_144_4358_2616/master/4358.jpg?width=1200&height=630&quality=85&auto=format&fit=crop&overlay-align=bottom%2Cleft&overlay-width=100p&overlay-base64=L2ltZy9zdGF0aWMvb3ZlcmxheXMvdGctZGVmYXVsdC5wbmc&enable=upscale&s=9cb8984b74cbd62eb2202dfe72e4ea1f",
-            "publishedAt": "2023-01-12T19:43:00Z",
-            "content": "Quarterback Derek Carr appeared to confirm his nine-year career with the Raiders is over on Thursday after posting a farewell to the teams fans on social media.\r\nFrom the bottom of my heart, I am so … [+2696 chars]"
-        },
-        {
-            "source": {
-                "id": null,
-                "name": "Variety"
-            },
-            "author": "Clayton Davis",
-            "title": "PGA Awards Nominations: ‘The Whale’ and Four Blockbuster Sequels Recognized, Films Directed by Women Shut Out - Variety",
-            "description": "The 2023 Producers Guild of America Award nominations stunned on Thursday with a shocking inclusion of the Brendan Fraser best-actor vehicle “The Whale” making the lineup, in addition t…",
-            "url": "https://variety.com/2023/awards/awards/pga-awards-nominations-2023-the-whale-avatar-2-top-gun-1235487459/",
-            "urlToImage": "https://variety.com/wp-content/uploads/2023/01/The-Whale-Avatar-2-Black-Panther-Glass-Onion-Top-Gun.jpg?w=1000&h=563&crop=1",
-            "publishedAt": "2023-01-12T19:00:00Z",
-            "content": "The 2023 Producers Guild of America Award nominations stunned on Thursday with a shocking inclusion of the Brendan Fraser best-actor vehicle “The Whale” making the lineup, in addition to four sequels… [+4564 chars]"
-        },
-        {
-            "source": {
-                "id": "bloomberg",
-                "name": "Bloomberg"
-            },
-            "author": null,
-            "title": "JPMorgan Says Frank Was Fraud - Bloomberg",
-            "description": null,
-            "url": "https://www.bloomberg.com/tosv2.html?vid=&uuid=5de9ad71-92cc-11ed-8dce-6b4667474e6c&url=L29waW5pb24vYXJ0aWNsZXMvMjAyMy0wMS0xMi9qcG1vcmdhbi1zYXlzLWZyYW5rLXdhcy1mcmF1ZA==",
-            "urlToImage": null,
-            "publishedAt": "2023-01-12T18:56:17Z",
-            "content": "To continue, please click the box below to let us know you're not a robot."
-        },
-        {
-            "source": {
-                "id": "the-washington-post",
-                "name": "The Washington Post"
-            },
-            "author": "Tyler Pager, Shane Harris, Karen DeYoung",
-            "title": "Taylor Dudley, American held in Russia, is freed, U.S. says - The Washington Post",
-            "description": "Taylor Dudley was released at a border crossing with Poland. It appears he was not part of a prisoner swap.",
-            "url": "https://www.washingtonpost.com/national-security/2023/01/12/taylor-dudley-russian-captivity/",
-            "urlToImage": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/IDORGVFS7AI6XPEW7X2V3ZB354.jpg&w=1440",
-            "publishedAt": "2023-01-12T18:53:00Z",
-            "content": "Comment on this story\r\nA U.S. citizen who had been detained in Russia for nine months was released on Thursday, according to U.S. officials and others familiar with the matter.\r\nTaylor Dudley, 35, of… [+3012 chars]"
-        },
         {
             "source": {
                 "id": "fox-news",
@@ -215,62 +81,10 @@ class News extends Component<myProps> {
             "urlToImage": "https://image.cnbcfm.com/api/v1/image/107177920-1673541573494-gettyimages-1456006432-wm3_0122_c07a797f-765e-47b6-9edb-6fc9fb870b75.jpeg?v=1673547370&w=1920&h=1080",
             "publishedAt": "2023-01-12T18:16:10Z",
             "content": "Embattled Republican Rep. George Santos of New York vowed Thursday to stay in Congress and serve out his full two-year term, brushing off howls of bipartisan criticism and calls for his resignation a… [+3581 chars]"
-        },
-        {
-            "source": {
-                "id": "fox-news",
-                "name": "Fox News"
-            },
-            "author": "Elizabeth Heckman",
-            "title": "Biden has three strikes on border crisis after week of 'stunning' failures, Karl Rove says: 'I'm gobsmacked' - Fox News",
-            "description": "White House called out for being in \"la-la land\" on the migrant crisis after visiting a \"cleaned up\" El Paso, Texas, and not pressing the issue with Mexico's president.",
-            "url": "https://www.foxnews.com/media/biden-three-strikes-border-crisis-week-stunning-failures-karl-rove-says-gobsmacked",
-            "urlToImage": "https://cf-images.us-east-1.prod.boltdns.net/v1/static/694940094001/39de6f3b-2cd4-40a4-a0c2-d6cdf34a2995/d2da1459-cf05-4ae1-b30d-25a038b7560c/1280x720/match/image.jpg",
-            "publishedAt": "2023-01-12T18:00:00Z",
-            "content": "A flabbergasted Karl Rove called out President Biden's \"shocking\" week of failures on the border crisis after U.S. and Mexican Cabinet officials reportedly \"ran out of time\" to discuss the migrant su… [+3432 chars]"
-        },
-        {
-            "source": {
-                "id": "engadget",
-                "name": "Engadget"
-            },
-            "author": "https://www.engadget.com/about/editors/will-shanklin-1",
-            "title": "Intel’s new desktop processor reaches 6GHz without overclocking - Engadget",
-            "description": "After coming close to the 6GHz barrier last year, Intel has a new chip that meets that threshold at stock speeds..",
-            "url": "https://www.engadget.com/intel-6-ghz-processor-i-9-13900-ks-raptor-lake-175334905.html",
-            "urlToImage": "https://s.yimg.com/os/creatr-uploaded-images/2023-01/6b45bf80-929c-11ed-bd5b-887f06381a3a",
-            "publishedAt": "2023-01-12T17:54:49Z",
-            "content": "Intel has just introduced a new desktop processor, the Core i9-13900KS, that can reach up to 6GHz without overclocking, making it the fastest desktop processor available. This is made possible by the… [+1265 chars]"
-        },
-        {
-            "source": {
-                "id": "nfl-news",
-                "name": "NFL News"
-            },
-            "author": "Marc Sessler",
-            "title": "NFL QB Index: Ranking all 32 teams' primary starting quarterbacks at the end of the 2022 regular season - NFL.com",
-            "description": "With the 2022 NFL regular season in the books, Marc Sessler ranks the starting quarterbacks for all 32 teams. Where do breakout studs like Brock Purdy, Trevor Lawrence and Jalen Hurts slot in?",
-            "url": "https://www.nfl.com/news/nfl-qb-index-ranking-all-32-teams-primary-starting-quarterbacks-at-the-end-of-th",
-            "urlToImage": "https://static.www.nfl.com/image/private/t_editorial_landscape_12_desktop/league/tygzjjrs4aph7yhqcpyh",
-            "publishedAt": "2023-01-12T17:52:00Z",
-            "content": "2022 stats: 16 games | 67.2 pct | 3,205 pass yds | 6.8 ypa | 15 pass TD | 5 INT | 708 rush yds | 7 rush TD | 6 fumbles\r\nPlaying all year to prove he belongs next year, Jones entered Week 17 amid repo… [+752 chars]"
-        },
-        {
-            "source": {
-                "id": "usa-today",
-                "name": "USA Today"
-            },
-            "author": "Terry Collins and Trevor Hughes, USA TODAY",
-            "title": "Bryan Kohberger in court: Idaho college murders suspect remains jailed - USA TODAY",
-            "description": "If convicted, he could face the death penalty, which is legal in Idaho. Investigators have not yet revealed a potential motive behind the killings.",
-            "url": "https://www.usatoday.com/story/news/2023/01/12/idaho-student-murders-bryan-kohberger-court-hearing/11035605002/",
-            "urlToImage": "https://www.gannett-cdn.com/presto/2023/01/05/USAT/2cc1cfae-c3ff-4190-9698-15ae146ef598-AP_Four_Dead_University_of_Idaho_2.JPG?auto=webp&crop=6653,3743,x0,y338&format=pjpg&width=1200",
-            "publishedAt": "2023-01-12T17:35:40Z",
-            "content": "The graduate student accused of fatally stabbing four University of Idaho students remains jailed without the possibility of bail and is set to face a judge in June for a preliminary hearing.\r\nIn a s… [+4483 chars]"
         }
     ]
 
-    constructor(props: myProps) {
+    constructor(props: any) {
         super(props);
         this.state = {
             articles: this.articles,
@@ -288,15 +102,11 @@ class News extends Component<myProps> {
                 </div>
                 <div className="container my-4">
                     <div className="row">
-                        <div className="col-md-4 my-2">
-                            <NewsItem imageUrl="" title="title" description="description" url="url" />
-                        </div>
-                        <div className="col-md-4 my-2">
-                            <NewsItem imageUrl="" title="title" description="description" url="url" />
-                        </div>
-                        <div className="col-md-4 my-2">
-                            <NewsItem imageUrl="" title="title" description="description" url="url" />
-                        </div>
+                        {this.state.articles?.map((element: any) => {
+                            return <div className="col-md-4 my-2">
+                                <NewsItem imageUrl={element.urlToImage} title={element.title} description={element.description} url={element.url} />
+                            </div>
+                        })}
                     </div>
                 </div>
             </>

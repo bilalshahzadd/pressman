@@ -9,6 +9,11 @@ type linkProps = {
 
 class NewsItem extends Component<linkProps> {
 
+    customStyle: object = {
+        backgroundColor: "rgb(15 23 42)",
+        color: "#fff"
+    }
+
     render() {
         return (
             <div className="card" style={{ "width": "23rem" }}>
@@ -16,7 +21,7 @@ class NewsItem extends Component<linkProps> {
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title}</h5>
                     <p className="card-text">{this.props.description}</p>
-                    <a href={this.props.url} className="btn btn-sm btn-primary">Read More</a>
+                    <a href={this.props.url} className="btn btn-sm" style={this.customStyle}>Read More</a>
                 </div>
             </div>
         )
