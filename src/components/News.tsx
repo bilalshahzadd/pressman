@@ -104,9 +104,9 @@ class News extends React.Component<{ heading: string }, any>{
                 </div>
                 <div className="container my-4">
                     <div className="row">
-                        {this.state.articles?.map((element: any) => {
-                            return <div className="col-md-4 my-2" key={element.url}>
-                                <NewsItem imageUrl={element.urlToImage} title={element.title?.slice(0, 35)} description={element.description?.slice(0, 80)} url={element.url} />
+                        {this.state.articles?.map((news: any) => {
+                            return <div className="col-md-4 my-2" key={news.url}>
+                                <NewsItem imageUrl={news.urlToImage} title={news.title?.slice(0, 35)} description={news.description?.slice(0, 80)} url={news.url} />
                             </div>
                         })}
                     </div>
