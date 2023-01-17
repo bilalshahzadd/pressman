@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Header />
-      <News heading="Pressman - Get Daily Updates For Free" />
+      <News heading="Pressman - Get Daily Updates For Free" pageSize={6} page={1} />
     </>
   );
 }
