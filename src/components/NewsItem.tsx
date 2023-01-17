@@ -17,7 +17,7 @@ class NewsItem extends Component<linkProps> {
     render() {
         return (
             <div className="card" style={{ "width": "23rem" }}>
-                <img src={this.props.imageUrl} className="card-img-top" alt="..." />
+                <img src={this.props.imageUrl} className="card-img-top" alt="..." height={"220px"} />
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title}</h5>
                     <p className="card-text">{this.props.description}</p>

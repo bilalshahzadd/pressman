@@ -8,7 +8,8 @@ class News extends React.Component<{ heading: string }, any>{
         super(props);
         this.state = {
             articles: [],
-            loading: false
+            loading: false,
+            page: 1
         };
     }
 
@@ -33,7 +34,7 @@ class News extends React.Component<{ heading: string }, any>{
                     <div className="row">
                         {this.state.articles?.map((news: any) => {
                             return <div className="col-md-4 my-2" key={news.url ? news.url : ""}>
-                                <NewsItem imageUrl={news.urlToImage ? news.urlToImage : image} title={news.title ? news.title?.slice(0, 35) : ""} description={news.description ? news.description?.slice(0, 80) : ""} url={news.url ? news.url : ""} />
+                                <NewsItem imageUrl={news.urlToImage ? news.urlToImage : image} title={news.title ? news.title?.slice(0, 20) : ""} description={news.description ? news.description?.slice(0, 80) : ""} url={news.url ? news.url : ""} />
                             </div>
                         })}
                     </div>
