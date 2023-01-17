@@ -4,8 +4,7 @@ import image from './image/imageNotFound.jpeg'
 
 interface infoProps {
     heading: string,
-    pageSize: number,
-    page: number
+    pageSize: number
 }
 
 class News extends React.Component<infoProps, any>{
@@ -20,22 +19,27 @@ class News extends React.Component<infoProps, any>{
     }
 
     async componentDidMount() {
-        const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.props.page}&pageSize=${this.props.pageSize}`;
-        const info = await fetch(api);
-        const parsedInfo = await info.json();
-        this.setState({
-            articles: parsedInfo.articles
-        })
-    }
-
-    nextPage = async () => {
-        const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         const info = await fetch(api);
         const parsedInfo = await info.json();
         this.setState({
             articles: parsedInfo.articles,
-            page: this.state.page + 1
+            totalResults: parsedInfo.totalResults
         })
+    }
+
+    nextPage = async () => {
+        if (this.state.page + 1 > Math.ceil(this.state.totalResults / 6)) {
+            return;
+        } else {
+            const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            const info = await fetch(api);
+            const parsedInfo = await info.json();
+            this.setState({
+                articles: parsedInfo.articles,
+                page: this.state.page + 1
+            })
+        }
     }
 
     prevPage = async () => {
