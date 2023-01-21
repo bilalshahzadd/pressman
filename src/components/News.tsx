@@ -1,6 +1,7 @@
 import React from 'react'
 import NewsItem from './NewsItem'
 import image from './image/imageNotFound.jpeg'
+import Loader from './Loader'
 
 interface infoProps {
     heading: string,
@@ -20,11 +21,15 @@ class News extends React.Component<infoProps, any>{
 
     async componentDidMount() {
         const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        this.setState({
+            loading: true
+        })
         const info = await fetch(api);
         const parsedInfo = await info.json();
         this.setState({
             articles: parsedInfo.articles,
-            totalResults: parsedInfo.totalResults
+            totalResults: parsedInfo.totalResults,
+            loading: false
         })
     }
 
@@ -33,22 +38,30 @@ class News extends React.Component<infoProps, any>{
             return;
         } else {
             const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            this.setState({
+                loading: true
+            })
             const info = await fetch(api);
             const parsedInfo = await info.json();
             this.setState({
                 articles: parsedInfo.articles,
-                page: this.state.page + 1
+                page: this.state.page + 1,
+                loading: false
             })
         }
     }
 
     prevPage = async () => {
         const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        this.setState({
+            loading: true
+        })
         const info = await fetch(api);
         const parsedInfo = await info.json();
         this.setState({
             articles: parsedInfo.articles,
-            page: this.state.page - 1
+            page: this.state.page - 1,
+            loading: false
         })
     }
 
@@ -60,9 +73,12 @@ class News extends React.Component<infoProps, any>{
                     <h2 className="fw-normal">{this.props.heading}</h2>
                     <hr />
                 </div>
+                <div className="text-center">
+                    {this.state.loading && <Loader />}
+                </div>
                 <div className="container my-4">
                     <div className="row">
-                        {this.state.articles?.map((news: any) => {
+                        {!this.state.loading && this.state.articles?.map((news: any) => {
                             return <div className="col-md-4 my-2" key={news.url ? news.url : ""}>
                                 <NewsItem imageUrl={news.urlToImage ? news.urlToImage : image} title={news.title ? news.title?.slice(0, 20) : ""} description={news.description ? news.description?.slice(0, 80) : ""} url={news.url ? news.url : ""} />
                             </div>
