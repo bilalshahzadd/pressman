@@ -5,7 +5,8 @@ import Loader from './Loader'
 
 interface infoProps {
     heading: string,
-    pageSize: number
+    pageSize: number,
+    category: string
 }
 
 class News extends React.Component<infoProps, any>{
@@ -20,7 +21,7 @@ class News extends React.Component<infoProps, any>{
     }
 
     async componentDidMount() {
-        const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        const api = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({
             loading: true
         })
@@ -37,7 +38,7 @@ class News extends React.Component<infoProps, any>{
         if (this.state.page + 1 > Math.ceil(this.state.totalResults / 6)) {
             return;
         } else {
-            const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+            const api = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
             this.setState({
                 loading: true
             })
@@ -52,7 +53,7 @@ class News extends React.Component<infoProps, any>{
     }
 
     prevPage = async () => {
-        const api = `https://newsapi.org/v2/top-headlines?country=us&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+        const api = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         this.setState({
             loading: true
         })
