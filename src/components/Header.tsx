@@ -22,25 +22,25 @@ class Header extends Component {
                                     <a className="nav-link active" aria-current="page" href="/about">Home</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/about">General</a>
+                                    <a className="nav-link" href="/General">General</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/about">Entertainment</a>
+                                    <a className="nav-link" href="/Entertainment">Entertainment</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/about">Sports</a>
+                                    <a className="nav-link" href="/Sports">Sports</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/about">Health</a>
+                                    <a className="nav-link" href="/Health">Health</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/about">Business</a>
+                                    <a className="nav-link" href="/Business">Business</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/about">Science</a>
+                                    <a className="nav-link" href="/Science">Science</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/about">Technology</a>
+                                    <a className="nav-link" href="/Technology">Technology</a>
                                 </li>
                             </ul>
                         </div>
