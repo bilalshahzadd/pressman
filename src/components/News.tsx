@@ -81,7 +81,7 @@ class News extends React.Component<infoProps, any>{
                     <div className="row">
                         {!this.state.loading && this.state.articles?.map((news: any) => {
                             return <div className="col-md-4 my-2" key={news.url ? news.url : ""}>
-                                <NewsItem imageUrl={news.urlToImage ? news.urlToImage : image} title={news.title ? news.title?.slice(0, 20) : ""} description={news.description ? news.description?.slice(0, 80) : ""} url={news.url ? news.url : ""} author={news.author ? news.author : "Unknown"} date={news.publishedAt ? news.publishedAt : "Time not available"} />
+                                <NewsItem imageUrl={news.urlToImage ? news.urlToImage : image} title={news.title ? news.title?.slice(0, 20) : ""} description={news.description ? news.description?.slice(0, 80) : ""} url={news.url ? news.url : ""} author={news.author ? news.author : "Unknown"} date={news.publishedAt ? new Date(news.publishedAt).toTimeString() : "Time not available"} />
                             </div>
                         })}
                     </div>
