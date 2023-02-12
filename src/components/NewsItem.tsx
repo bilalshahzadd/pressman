@@ -4,7 +4,9 @@ type linkProps = {
     title: string,
     description: string,
     imageUrl: string,
-    url: string
+    url: string,
+    author: string,
+    date: string
 }
 
 class NewsItem extends Component<linkProps> {
@@ -21,6 +23,7 @@ class NewsItem extends Component<linkProps> {
                 <div className="card-body">
                     <h5 className="card-title">{this.props.title}</h5>
                     <p className="card-text">{this.props.description}</p>
+                    <p className="card-text"><small className="text-muted">By {this.props.author} on {this.props.date}</small></p>
                     <a href={this.props.url} className="btn btn-sm" style={this.customStyle} target="_blank" rel="noreferrer">Read More</a>
                 </div>
             </div>
