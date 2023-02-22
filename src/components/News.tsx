@@ -61,7 +61,7 @@ class News extends React.Component<infoProps, any>{
             <>
                 <div className="container my-4">
                     <hr />
-                    <h2 className="fw-normal">Pressman - Headlines in {this.capitlizeLetter(this.props.category)}</h2>
+                    <h2 className="fw-normal">Pressman - {this.capitlizeLetter(this.props.category)} Headlines</h2>
                     <hr />
                 </div>
                 <div className="text-center">
