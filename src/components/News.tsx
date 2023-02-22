@@ -11,6 +11,10 @@ interface infoProps {
 
 class News extends React.Component<infoProps, any>{
 
+    capitlizeLetter = (title: string) => {
+        return title.charAt(0).toUpperCase() + title.slice(1);
+    }
+
     constructor(props: any) {
         super(props);
         this.state = {
@@ -18,6 +22,7 @@ class News extends React.Component<infoProps, any>{
             loading: false,
             page: 1
         };
+        document.title = `${this.capitlizeLetter(this.props.category)} - Pressman`;
     }
 
     async fetch() {
