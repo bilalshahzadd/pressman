@@ -11,9 +11,9 @@ interface infoProps {
 
 class News extends React.Component<infoProps, any>{
 
-    // capitlizeLetter = (title: string) => {
-    //     return title.charAt(0).toUpperCase() + title.slice(1);
-    // }
+    capitlizeLetter = (title: string) => {
+        return title.charAt(0).toUpperCase() + title.slice(1);
+    }
 
     constructor(props: any) {
         super(props);
