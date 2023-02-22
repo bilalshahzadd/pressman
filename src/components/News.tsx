@@ -4,7 +4,6 @@ import image from './image/imageNotFound.jpeg'
 import Loader from './Loader'
 
 interface infoProps {
-    heading: string,
     pageSize: number,
     category: string
 }
@@ -62,7 +61,7 @@ class News extends React.Component<infoProps, any>{
             <>
                 <div className="container my-4">
                     <hr />
-                    <h2 className="fw-normal">{this.props.heading}</h2>
+                    <h2 className="fw-normal">Pressman - Headlines in {this.capitlizeLetter(this.props.category)}</h2>
                     <hr />
                 </div>
                 <div className="text-center">
