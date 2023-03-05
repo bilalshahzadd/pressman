@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import News from './components/News';
+import LoadingBar from 'react-top-loading-bar';
+import { useState } from 'react';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,10 +12,18 @@ import {
 } from 'react-router-dom';
 
 function App() {
+
+  const [progress, setProgress] = useState(10)
+
   return (
     <>
       <Router>
         <Header />
+        <LoadingBar
+          color='#f11946'
+          progress={progress}
+          onLoaderFinished={() => setProgress(0)}
+        />
         <Routes>
           <Route path="/" element={<News key="general" pageSize={6} category="general" />}></Route>
           <Route path="/Entertainment" element={<News key="entertainment" pageSize={6} category="entertainment" />}></Route>
