@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 type linkProps = {
     title: string,
@@ -9,7 +9,7 @@ type linkProps = {
     date: string
 }
 
-class NewsItem extends Component<linkProps> {
+class NewsItem extends React.Component<linkProps> {
 
     customStyle: object = {
         backgroundColor: "rgb(15 23 42)",

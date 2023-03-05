@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import News from './components/News';
 import LoadingBar from 'react-top-loading-bar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-class App extends Component {
+class App extends React.Component {
 
   state = {
     progress: 20
