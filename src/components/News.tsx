@@ -6,6 +6,7 @@ import Loader from './Loader'
 interface infoProps {
     pageSize: number,
     category: string
+    setLoader: any
 }
 
 class News extends React.Component<infoProps, any>{
@@ -25,6 +26,7 @@ class News extends React.Component<infoProps, any>{
     }
 
     async fetch() {
+        this.props.setLoader(10);
         const api = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({
             loading: true
@@ -36,6 +38,7 @@ class News extends React.Component<infoProps, any>{
             totalResults: parsedInfo.totalResults,
             loading: false
         })
+        this.props.setLoader(100);
     }
 
     async componentDidMount() {
