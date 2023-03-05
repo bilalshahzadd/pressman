@@ -28,11 +28,13 @@ class News extends React.Component<infoProps, any>{
     async fetch() {
         this.props.setLoader(10);
         const api = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        this.props.setLoader(30);
         this.setState({
             loading: true
         })
         const info = await fetch(api);
         const parsedInfo = await info.json();
+        this.props.setLoader(60);
         this.setState({
             articles: parsedInfo.articles,
             totalResults: parsedInfo.totalResults,

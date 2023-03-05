@@ -21,6 +21,7 @@ class App extends Component {
         <Router>
           <Header />
           <LoadingBar
+            height={2}
             color='#f11946'
             progress={this.state.progress}
             onLoaderFinished={() => this.setProgress(0)}
