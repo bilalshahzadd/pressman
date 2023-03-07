@@ -6,7 +6,8 @@ import Loader from './Loader'
 interface infoProps {
     pageSize: number,
     category: string
-    setLoader: any
+    setLoader: any,
+    apiKey: any
 }
 
 class News extends React.Component<infoProps, any>{
@@ -27,7 +28,7 @@ class News extends React.Component<infoProps, any>{
 
     async fetch() {
         this.props.setLoader(10);
-        const api = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=abda44f61d834d129ca57a7b3242d585&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        const api = `https://newsapi.org/v2/top-headlines?country=us&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.props.setLoader(30);
         this.setState({
             loading: true
